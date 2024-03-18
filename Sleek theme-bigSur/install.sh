@@ -113,11 +113,7 @@ if [ "$UID" -eq "$ROOT_UID" ]; then
   elif has_command grub-mkconfig; then
     grub-mkconfig -o /boot/grub/grub.cfg
   elif has_command grub2-mkconfig; then
-    if has_command zypper; then
-      grub2-mkconfig -o /boot/grub2/grub.cfg
-    elif has_command dnf; then
-      grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg
-    fi
+    grub2-mkconfig -o /boot/grub2/grub.cfg
   fi
 
   # Success message
